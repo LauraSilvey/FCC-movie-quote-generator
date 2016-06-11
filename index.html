@@ -2,16 +2,36 @@
 <html lang="en">
 
 <head>
-	<title>Random Quote Generator</title>
+  <title>Random Quote Generator</title>
   <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
-  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/script.js"></script> 
 </head>
 
-<body>
 
+<body>
+  <!-- centered quote box -->
+  <div class="well well-centered" id="quoteBox">
+    <div class="quote-text">
+      <i class="fa fa-quote-left fa-2x" aria-hidden="true"><h3 class ="text-center" id="quote"> </h3></i>
+    </div>
+    <div class="quote-author text-right">
+      - <span id="movie"></span>
+    </div>          
+  <!-- buttons inside quote box -->
+    <div class="row">
+      <div class="col-xs-6">
+        <button class="btn" id="shareQuote"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></button>
+      </div>
+      <div class="col-xs-6">
+        <button class="btn btn-md" id="getQuote">New Quote</button>
+      </div> 
+    </div>
+  </div> <!-- well div -->
 </body>
 </html>

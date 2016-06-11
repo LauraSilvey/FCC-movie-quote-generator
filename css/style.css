@@ -1,1 +1,56 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1455472467710-3b204ed59394?crop=entropy&fit=crop&fm=jpg&h=725&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1450");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
+.well-centered {
+    position: relative;
+    margin: 15% auto auto auto;
+    max-width: 425px;
+}
+
+#quoteBox {
+    background-color: #FFFAF0;
+    border-radius: 10px;
+    padding: 25px 35px;
+}
+
+.quote-text{
+	color: #e06000;
+}
+
+#quote {
+	line-height: 1.3em;
+	color: black;
+}
+
+.row {
+	margin-top: 30px;
+}
+
+button {
+	opacity: 1;
+}
+
+button:hover {
+	opacity: 0.90;
+}
+
+#shareQuote {
+	background-color: #55acee;
+	border: none;
+}
+
+.fa-twitter {
+	color: #ffffff;
+}
+
+#getQuote {
+	float: right;
+    color: #ffffff;
+	background-color: #e06000;
+	padding: 10px;
+}
