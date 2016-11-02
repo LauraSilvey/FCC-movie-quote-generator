@@ -80,23 +80,42 @@ var quotes = [
   	movie:"Life with Father"
   }
  ];
-var currentQuote, currentMovie;
-
+var currentQuote, currentMovie, index;
+var usedIndex = [];
+/* test length of usedIndex array to see if all quotes have been used;
+reset usedIndex if full and call randomIndex() again */
+function testLength(){
+  if(usedIndex.length === quotes.length){
+    usedIndex = [];
+    randomIndex();
+  }
+}
+/* Set index to random number if the number is not found in the usedindex
+array. If index is not set, call randomIndex again. */
+function setIndex(){
+  if(!usedIndex.includes(randomNum)){
+    index = randomNum;
+    usedIndex.push(randomNum); 
+  }else{
+    randomIndex();
+  }
+}
+// find random index number to use in newQuote()
+function randomIndex(){
+  testLength();
+  var randomNum = Math.floor(Math.random() * quotes.length);
+  setIndex();
+}
+// display new quote 
 function newQuote(){
-  var index = Math.floor(Math.random() * quotes.length);
+  randomIndex();
   currentQuote = quotes[index].quote;
   currentMovie = quotes[index].movie;
 
   $('#quote').html(currentQuote);
-  $('#movie').html(currentMovie);
- //remove used quote from quotes array 
-  quotes.splice(index, 1);
- //disable new quote button when quotes array is empty 
-  if(quotes.length < 1){
-    $('#getQuote').prop("disabled", true);
-  }
+  $('#movie').html(currentMovie); 
 };
-
+// display tweet
 function tweetQuote(){
   var tweetLength = currentQuote.length + currentMovie.length + 3;
   var endQuote = currentQuote.length - (tweetLength - 140) - 4;
