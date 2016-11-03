@@ -80,7 +80,7 @@ var quotes = [
   	movie:"Life with Father"
   }
  ];
-var currentQuote, currentMovie, index;
+var currentQuote, currentMovie, randomNum, index;
 var usedIndex = [];
 /* test length of usedIndex array to see if all quotes have been used;
 reset usedIndex if full and call randomIndex() again */
@@ -103,7 +103,7 @@ function setIndex(){
 // find random index number to use in newQuote()
 function randomIndex(){
   testLength();
-  var randomNum = Math.floor(Math.random() * quotes.length);
+  randomNum = Math.floor(Math.random() * quotes.length);
   setIndex();
 }
 // display new quote 
@@ -124,7 +124,8 @@ function tweetQuote(){
   currentQuote = encodeURI(currentQuote);
   currentMovie = encodeURI(currentMovie);
 
-  return tweetLength > 140 ? window.open("https://twitter.com/intent/tweet?text=" + shortQuote + "... " + " - " + currentMovie) : window.open("https://twitter.com/intent/tweet?text=" + currentQuote + " - " + currentMovie);
+  return tweetLength > 140 ? window.open("https://twitter.com/intent/tweet?text=" + shortQuote + "... " + " - " 
+    + currentMovie) : window.open("https://twitter.com/intent/tweet?text=" + currentQuote + " - " + currentMovie);
 };
 
 $(document).ready(function(){
