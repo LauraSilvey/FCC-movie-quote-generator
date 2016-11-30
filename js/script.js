@@ -80,58 +80,41 @@ var quotes = [
   	movie:"Life with Father"
   }
  ];
-var currentQuote, currentMovie, randomNum, index;
-var usedIndex = [];
-/* test length of usedIndex array to see if all quotes have been used;
-reset usedIndex if full and call randomIndex() again */
-function testLength(){
-  if(usedIndex.length === quotes.length){
-    usedIndex = [];
-    randomIndex();
-  }
-}
-/* Set index to random number if the number is not found in the usedindex
-array. If index is not set, call randomIndex again. */
-function setIndex(){
-  if(!usedIndex.includes(randomNum)){
-    index = randomNum;
-    usedIndex.push(randomNum); 
-  }else{
-    randomIndex();
-  }
-}
-// find random index number to use in newQuote()
-function randomIndex(){
-  testLength();
-  randomNum = Math.floor(Math.random() * quotes.length);
-  setIndex();
+var currentQuote, currentMovie;
+var index = -1;
+// pick next index number; start from beginning if index == 
+// last quote in the array.  
+function newQuote(){
+  return index < quotes.length - 1 ? index ++ : index = 0;
 }
 // display new quote 
-function newQuote(){
-  randomIndex();
+function displayQuote(){
+  newQuote();
   currentQuote = quotes[index].quote;
   currentMovie = quotes[index].movie;
 
   $('#quote').html(currentQuote);
   $('#movie').html(currentMovie); 
 };
+
 // display tweet
 function tweetQuote(){
   var tweetLength = currentQuote.length + currentMovie.length + 3;
   var endQuote = currentQuote.length - (tweetLength - 140) - 4;
   var shortQuote = currentQuote.slice(0, endQuote);
+  var url = "https://twitter.com/intent/tweet?text=";
 
   currentQuote = encodeURI(currentQuote);
   currentMovie = encodeURI(currentMovie);
 
-  return tweetLength > 140 ? window.open("https://twitter.com/intent/tweet?text=" + shortQuote + "... " + " - " 
-    + currentMovie) : window.open("https://twitter.com/intent/tweet?text=" + currentQuote + " - " + currentMovie);
+  return tweetLength > 140 ? window.open(url + shortQuote + "... " + " - " 
+    + currentMovie) : window.open(url + currentQuote + " - " + currentMovie);
 };
 
 $(document).ready(function(){
-  newQuote();
+  displayQuote();
   $('#getQuote').on("click", function(){
-  	newQuote();
+  	displayQuote();
   });
   $('#shareQuote').on("click", function(){
   	tweetQuote();
