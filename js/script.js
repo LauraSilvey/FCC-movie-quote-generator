@@ -8,76 +8,76 @@ var quotes = [
     movie:"Gone with the Wind"
   },
   {
-  	quote:"You don't understand! I coulda had class. I coulda been a contender. I could've been somebody, instead of a bum, which is what I am.",
-  	movie:"On the Waterfront"
+    quote:"You don't understand! I coulda had class. I coulda been a contender. I could've been somebody, instead of a bum, which is what I am.",
+    movie:"On the Waterfront"
   },
   {
-  	quote:"May the Force be with you.",
-  	movie:"Star Wars"
+    quote:"May the Force be with you.",
+    movie:"Star Wars"
   },
   {
-  	quote:"I love the smell of napalm in the morning.",
-  	movie:"Apocalype Now"
+    quote:"I love the smell of napalm in the morning.",
+    movie:"Apocalype Now"
   },
   {
-  	quote:"Show me the money!",
-  	movie:"Jerry Maguire"
+    quote:"Show me the money!",
+    movie:"Jerry Maguire"
   },
   {
-  	quote:"My mama always said, life was like a box of chocolates.  You never know what you're gonna get.",
-  	movie:"Forrest Gump"
+    quote:"My mama always said, life was like a box of chocolates.  You never know what you're gonna get.",
+    movie:"Forrest Gump"
   },
   {
-  	quote:"I see dead people.",
-  	movie:"The Sixth Sense"
+    quote:"I see dead people.",
+    movie:"The Sixth Sense"
   },
   {
-  	quote:"There's no crying in baseball!",
-  	movie:"A League of Their Own"
+    quote:"There's no crying in baseball!",
+    movie:"A League of Their Own"
   },
   {
-  	quote:"Nobody puts baby in a corner.",
-  	movie:"Dirty Dancing"
+    quote:"Nobody puts baby in a corner.",
+    movie:"Dirty Dancing"
   }, 
   {
-  	quote:"They may take our lives, but they will never take away our freedom!",
-  	movie:"Braveheart"
+    quote:"They may take our lives, but they will never take away our freedom!",
+    movie:"Braveheart"
   },
    {
-  	quote:"I'm just one stomach flu away from my goal weight!",
-  	movie:"The Devil Wears Prada"
+    quote:"I'm just one stomach flu away from my goal weight!",
+    movie:"The Devil Wears Prada"
   },
    {
-  	quote:"Magic mirror on the wall, who is the fairest one of all?",
-  	movie:"Snow White and the Seven Dwarves"
+    quote:"Magic mirror on the wall, who is the fairest one of all?",
+    movie:"Snow White and the Seven Dwarves"
   },
    {
-  	quote:"Wax on, wax off.",
-  	movie:"The Karate Kid"
+    quote:"Wax on, wax off.",
+    movie:"The Karate Kid"
   },
    {
-  	quote:"Good morning, Vietnam!",
-  	movie:"Good Morning, Vietnam"
+    quote:"Good morning, Vietnam!",
+    movie:"Good Morning, Vietnam"
   },
    {
-  	quote:"Help me, Obi-Wan Kenobi. You're my only hope.",
-  	movie:"Star Wars"
+    quote:"Help me, Obi-Wan Kenobi. You're my only hope.",
+    movie:"Star Wars"
   },
    {
-  	quote:"You is kind. You is smart. You is important.",
-  	movie:"The Help"
+    quote:"You is kind. You is smart. You is important.",
+    movie:"The Help"
   },
    {
-  	quote:"Everytime a bell rings, an angel gets his wings.",
-  	movie:"It's a Wonderful Life"
+    quote:"Everytime a bell rings, an angel gets his wings.",
+    movie:"It's a Wonderful Life"
   },
    {
-  	quote:"The greatest trick the devil ever pulled was convincing the world he didn't exist.",
-  	movie:"The Usual Suspects"
+    quote:"The greatest trick the devil ever pulled was convincing the world he didn't exist.",
+    movie:"The Usual Suspects"
   },
    {
-  	quote:"Mother, very peculiar things have happened since I started to wear this suit. I can't seem to make these clothes do anything Father wouldn't do.",
-  	movie:"Life with Father"
+    quote:"Mother, very peculiar things have happened since I started to wear this suit. I can't seem to make these clothes do anything Father wouldn't do.",
+    movie:"Life with Father"
   }
  ];
 var currentQuote, currentMovie;
@@ -103,20 +103,18 @@ function tweetQuote(){
   var endQuote = currentQuote.length - (tweetLength - 140) - 4;
   var shortQuote = currentQuote.slice(0, endQuote);
   var url = "https://twitter.com/intent/tweet?text=";
+  var greater = url + shortQuote + "... " + " - " + currentMovie;
+  var lesser = url + currentQuote + " - " + currentMovie;
 
-  currentQuote = encodeURI(currentQuote);
-  currentMovie = encodeURI(currentMovie);
-
-  return tweetLength > 140 ? window.open(url + shortQuote + "... " + " - " 
-    + currentMovie) : window.open(url + currentQuote + " - " + currentMovie);
+  return tweetLength > 140 ? $("#tweet-quote").attr('href', greater) : $("#tweet-quote").attr('href', lesser);
 };
 
 $(document).ready(function(){
   displayQuote();
-  $('#getQuote').on("click", function(){
-  	displayQuote();
+  tweetQuote();
+  $('#new-quote').on("click", function(){
+    displayQuote();
+    tweetQuote();
   });
-  $('#shareQuote').on("click", function(){
-  	tweetQuote();
-  });
+ 
 });

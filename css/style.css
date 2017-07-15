@@ -12,45 +12,45 @@ body {
     max-width: 425px;
 }
 
-#quoteBox {
+#quote-Box {
     background-color: #FFFAF0;
     border-radius: 10px;
     padding: 25px 35px;
 }
 
 .quote-text{
-	color: #e06000;
+  color: #e06000;
 }
 
 #quote {
-	line-height: 1.3em;
-	color: black;
+  line-height: 1.3em;
+  color: black;
 }
 
 .row {
-	margin-top: 30px;
+  margin-top: 30px;
 }
 
 button {
-	opacity: 1;
+  opacity: 1;
 }
 
 button:hover {
-	opacity: 0.90;
+  opacity: 0.90;
 }
 
-#shareQuote {
-	background-color: #55acee;
-	border: none;
+#tweet-quote {
+  background-color: #55acee;
+  border: none;
 }
 
 .fa-twitter {
-	color: #ffffff;
+  color: #ffffff;
 }
 
-#getQuote {
-	float: right;
+#new-quote {
+  float: right;
     color: #ffffff;
-	background-color: #e06000;
-	padding: 10px;
+  background-color: #e06000;
+  padding: 10px;
 }
